@@ -24,9 +24,6 @@ namespace EventAttendanceApp
                 {
                     _drinksToday = 1;
                 }
-                {
-                    _drinksToday++;
-                }
             }
         }
     }

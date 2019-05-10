@@ -25,11 +25,16 @@ namespace EventAttendanceApp
         {
             using (IDbConnection connect = new SQLiteConnection(LoadConnectionString()))
             {
-                connect.Execute("INSERT into Employee (EmployeeID, EmployeeName, LastLogin, DrinksToday) values (@EmployeeID, @EmployeeName, @LastLogin, @DrinksToday)", employee);
-                //connect.Execute("INSERT into Employee (EmployeeID) values (@EmployeeID)", employee);
-                //connect.Execute("INSERT into Employee (EmployeeName) values (@EmployeeName)", employee);
-                //connect.Execute("INSERT into Employee (LastLogin) values (@LastLogin)", employee);
-                //connect.Execute("INSERT into Employee (DrinksToday) values (@DrinksToday)", employee);
+                var existingEmployee = connect.Query<EmployeeModel>($"SELECT * FROM Employee WHERE EmployeeID = {employee.EmployeeId}", new DynamicParameters());
+                var employeeModels = existingEmployee.ToList();
+                if (employeeModels.Count > 0)
+                {
+                    connect.Execute($"UPDATE Employee SET DrinksToday = @DrinksToday WHERE EmployeeId = @EmployeeID", employee);
+                }
+                else
+                {
+                    connect.Execute("INSERT into Employee (EmployeeID, EmployeeName, LastLogin, DrinksToday) values (@EmployeeID, @EmployeeName, @LastLogin, @DrinksToday)", employee);
+                }
             }
         }
 
