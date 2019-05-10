@@ -1,20 +1,30 @@
 ﻿using Contacts.ProximityScanner;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
 using System.Net;
 using System.Net.Cache;
 using System.Windows.Forms;
+using EventAttendanceApp;
 
 namespace EventAttendanceApp
 {
 	public partial class EventAttendanceForm : Form
     {
 	    public campusEntities _ce = new campusEntities();
-		public EventAttendanceForm()
+        private List<EmployeeModel> _employees = new List<EmployeeModel>();
+
+        public EventAttendanceForm()
         {
             InitializeComponent();
+            LoadEmployeeList();
+        }
+
+        private void LoadEmployeeList()
+        {
+            _employees = SqliteDataAccess.LoadEmployees();
         }
 
         private void EventAttendanceForm_Load(object sender, EventArgs e)
@@ -27,7 +37,6 @@ namespace EventAttendanceApp
             lblWelcome.Visible = false;
             pbPicture.Visible = false;
 	        acceptBtn.Visible = false;
-
         }
 
         void ipc_OnScan(object sender, ProximityConnectorEventArgs e)
@@ -59,17 +68,23 @@ namespace EventAttendanceApp
 
                 //Show Name
                 lblWelcome.Text = "Welcome " + user.FirstName + " " + user.LastName;
-                lblWelcome.Left = (this.ClientSize.Width - lblWelcome.Width) / 2;
+                lblWelcome.Left = (ClientSize.Width - lblWelcome.Width) / 2;
                 lblWelcome.Visible = true;
 
 	            acceptBtn.Visible = true;
 
+                // db work
+                var emp = new EmployeeModel
+                {
+                    EmployeeId = user.CampusId, EmployeeName = user.FirstName + " " + user.LastName
+                };
 
-				//DB work
-				//var hh = new Happy
-				_ce.
+                emp.DrinksToday++;
+                emp.LastLogin = DateTime.Today;
+
+                SqliteDataAccess.SaveEmployee(emp);
             }
-		}
+        }
 
         private void EventAttendanceForm_Resize(object sender, EventArgs e)
         {
@@ -88,7 +103,7 @@ namespace EventAttendanceApp
 			acceptBtn.Visible = false;
 			lblWelcome.Visible = false;
 			LblScanBadge.Visible = true;
-		}
+        }
 	}
 	public class RestClient
     {
