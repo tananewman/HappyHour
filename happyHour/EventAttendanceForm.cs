@@ -76,7 +76,8 @@ namespace EventAttendanceApp
                 lblWelcome.Left = (ClientSize.Width - lblWelcome.Width) / 2;
                 lblWelcome.Visible = true;
 
-	            if (badgeAndPicture.Age < 21)
+
+				if (badgeAndPicture.Age < 21)
 	            {
 		            rejectBtn.Text = "Under 21!";
 		            rejectBtn.Visible = true;
@@ -95,13 +96,13 @@ namespace EventAttendanceApp
 	            acceptBtn.Visible = true;
 
                 // db work
-                var emp = _employees.Find(x => x.EmployeeId == user.CampusId);
+                var emp = _employees.Find(x => x.EmployeeId == e.BadgeNumber);
 
                 if (emp == null)
                 {
                     emp = new EmployeeModel
                     {
-                        EmployeeId = user.CampusId,
+                        EmployeeId = e.BadgeNumber,
                         EmployeeName = user.FirstName + " " + user.LastName
                     };
                 }
@@ -162,7 +163,7 @@ namespace EventAttendanceApp
 			});
 			_badgeAndPicture.Add(new BadgeAndPicture
 			{
-				ShortId = "49607",
+				ShortId = "49067",
 				LongId = "12003164075",
 				PhotoPath = @"P129-Montana Newman.JPG",
 				Age = 28
