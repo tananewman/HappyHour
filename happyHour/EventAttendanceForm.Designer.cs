@@ -1,4 +1,6 @@
-﻿namespace EventAttendanceApp
+﻿using System.Drawing;
+
+namespace EventAttendanceApp
 {
     partial class EventAttendanceForm
     {
@@ -33,8 +35,8 @@
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.LblScanBadge = new System.Windows.Forms.Label();
 			this.lblWelcome = new System.Windows.Forms.Label();
-			this.pbPicture = new System.Windows.Forms.PictureBox();
 			this.acceptBtn = new System.Windows.Forms.Button();
+			this.pbPicture = new EventAttendanceApp.OvalPictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
 			this.SuspendLayout();
@@ -68,25 +70,27 @@
 			this.lblWelcome.TabIndex = 8;
 			this.lblWelcome.Text = "Welcome Label";
 			// 
-			// pbPicture
-			// 
-			this.pbPicture.Location = new System.Drawing.Point(441, 321);
-			this.pbPicture.Name = "pbPicture";
-			this.pbPicture.Size = new System.Drawing.Size(252, 372);
-			this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pbPicture.TabIndex = 9;
-			this.pbPicture.TabStop = false;
-			// 
 			// acceptBtn
 			// 
 			this.acceptBtn.BackColor = System.Drawing.Color.DodgerBlue;
-			this.acceptBtn.Location = new System.Drawing.Point(424, 725);
+			this.acceptBtn.Location = new System.Drawing.Point(392, 724);
 			this.acceptBtn.Name = "acceptBtn";
-			this.acceptBtn.Size = new System.Drawing.Size(294, 64);
+			this.acceptBtn.Size = new System.Drawing.Size(370, 64);
 			this.acceptBtn.TabIndex = 10;
 			this.acceptBtn.Text = "Accept";
 			this.acceptBtn.UseVisualStyleBackColor = false;
 			this.acceptBtn.Click += new System.EventHandler(this.button1_Click);
+	        this.acceptBtn.Font = new Font("Arial", 24, FontStyle.Bold);
+			// 
+			// pbPicture
+			// 
+			this.pbPicture.BackColor = System.Drawing.Color.DarkGray;
+			this.pbPicture.Location = new System.Drawing.Point(392, 298);
+			this.pbPicture.Name = "pbPicture";
+			this.pbPicture.Size = new System.Drawing.Size(370, 372);
+			this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pbPicture.TabIndex = 9;
+			this.pbPicture.TabStop = false;
 			// 
 			// EventAttendanceForm
 			// 
@@ -116,7 +120,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label LblScanBadge;
         private System.Windows.Forms.Label lblWelcome;
-        private System.Windows.Forms.PictureBox pbPicture;
+        private OvalPictureBox pbPicture;
 
 		private System.Windows.Forms.Button acceptBtn;
 	}

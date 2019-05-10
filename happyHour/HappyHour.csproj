@@ -92,25 +92,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventAttendance.cs">
-      <DependentUpon>EventAttendanceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EventAttendanceModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EventAttendanceModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EventAttendanceModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EventAttendanceModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="HappyHourModel.cs" />
-    <Compile Include="HappyHour_old.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HappyHour_old.edmx</DependentUpon>
-    </Compile>
     <Compile Include="EventAttendanceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,23 +115,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="HappyHour_old.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HappyHour_old.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="EventAttendanceModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HappyHour_old.edmx</DependentUpon>
-      <LastGenOutput>EventAttendanceModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="HappyHour_old.edmx.diagram">
-      <DependentUpon>HappyHour_old.edmx</DependentUpon>
-    </None>
-    <None Include="EventAttendanceModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HappyHour_old.edmx</DependentUpon>
-      <LastGenOutput>EventAttendanceModel.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -173,10 +138,10 @@
     <Content Include="Contacts.ProximityScanner.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="HappyHour_old.edmx.sql" />
     <Content Include="PcProxAPI_x86.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\PcProxAPI_x64.dll" />
     <None Include="Resources\1800contactslogo2.png" />
   </ItemGroup>
   <ItemGroup>

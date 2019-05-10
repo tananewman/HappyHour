@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Configuration;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Net;
 using System.Net.Cache;
 using System.Windows.Forms;
@@ -11,7 +12,6 @@ namespace EventAttendanceApp
 {
 	public partial class EventAttendanceForm : Form
     {
-	    public campusEntities _ce = new campusEntities();
 		public EventAttendanceForm()
         {
             InitializeComponent();
@@ -63,11 +63,6 @@ namespace EventAttendanceApp
                 lblWelcome.Visible = true;
 
 	            acceptBtn.Visible = true;
-
-
-				//DB work
-				//var hh = new Happy
-				_ce.
             }
 		}
 
@@ -79,7 +74,7 @@ namespace EventAttendanceApp
             LblScanBadge.Visible = true;
             lblWelcome.Left = (this.ClientSize.Width - lblWelcome.Width) / 2;
             pbPicture.Left = (this.ClientSize.Width - pbPicture.Width) / 2;
-			acceptBtn.Left = ((this.ClientSize.Width - pbPicture.Width) / 2) -15;
+			acceptBtn.Left = ((this.ClientSize.Width - pbPicture.Width) / 2);
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -89,6 +84,7 @@ namespace EventAttendanceApp
 			lblWelcome.Visible = false;
 			LblScanBadge.Visible = true;
 		}
+
 	}
 	public class RestClient
     {
@@ -123,4 +119,22 @@ namespace EventAttendanceApp
         public string AccountName { get; set; }
         public string Sid { get; set; }
     }
+
+	class OvalPictureBox : PictureBox
+	{
+		public OvalPictureBox()
+		{
+			this.BackColor = Color.DarkGray;
+		}
+		protected override void OnResize(EventArgs e)
+		{
+			base.OnResize(e);
+			using (var gp = new GraphicsPath())
+			{
+				gp.AddEllipse(0, 0, this.Width, this.Height - 3);
+				Region rg = new Region(gp);
+				this.Region = rg;
+			}
+		}
+	}
 }
