@@ -83,20 +83,12 @@ namespace EventAttendanceApp
 		            rejectBtn.Visible = true;
 		            return;
 	            }
-				else if (badgeAndPicture.DrinkCount > 2)
-	            {
-		            rejectBtn.Text = "Over Drink Limit!";
-		            rejectBtn.Visible = true;
-		            return;
-	            }
 
 	            badgeAndPicture.DrinkCount++;
-
-				//TODO currently this is just newing up an employee, we're going to need to check if the user has already had drinks
-	            acceptBtn.Visible = true;
-
+                
                 // db work
-                var emp = _employees.Find(x => x.EmployeeId == e.BadgeNumber);
+
+                var emp = SqliteDataAccess.GetEmployeeByBadgeNumber(badgeNumber);
 
                 if (emp == null)
                 {
@@ -107,9 +99,16 @@ namespace EventAttendanceApp
                     };
                 }
 
+                if (emp.DrinksToday > 2)
+                {
+                    rejectBtn.Text = "Over Drink Limit!";
+                    rejectBtn.Visible = true;
+                    return;
+                }
+
                 emp.DrinksToday++;
                 emp.LastLogin = DateTime.Today;
-
+                acceptBtn.Visible = true;
                 SqliteDataAccess.SaveEmployee(emp);
             }
         }

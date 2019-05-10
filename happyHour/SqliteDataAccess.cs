@@ -21,6 +21,16 @@ namespace EventAttendanceApp
             }
         }
 
+        public static EmployeeModel GetEmployeeByBadgeNumber(string badgeNumber)
+        {
+            using (IDbConnection connect = new SQLiteConnection(LoadConnectionString()))
+            {
+                var badgeNumberInt = int.Parse(badgeNumber);
+                var existingEmployee = connect.Query<EmployeeModel>($"SELECT * FROM Employee WHERE EmployeeID = {badgeNumberInt}", new DynamicParameters());
+                return existingEmployee.FirstOrDefault();
+            }
+        }
+
         public static void SaveEmployee(EmployeeModel employee)
         {
             using (IDbConnection connect = new SQLiteConnection(LoadConnectionString()))
