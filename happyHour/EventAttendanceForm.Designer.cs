@@ -61,20 +61,22 @@ namespace EventAttendanceApp
 			this.LblScanBadge.Size = new System.Drawing.Size(597, 73);
 			this.LblScanBadge.TabIndex = 8;
 			this.LblScanBadge.Text = "Please Scan Badge";
-			// 
-			// lblWelcome
-			// 
-			this.lblWelcome.AutoSize = true;
+            this.LblScanBadge.ForeColor = System.Drawing.Color.White;
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
 			this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblWelcome.Location = new System.Drawing.Point(394, 145);
 			this.lblWelcome.Name = "lblWelcome";
 			this.lblWelcome.Size = new System.Drawing.Size(355, 55);
 			this.lblWelcome.TabIndex = 8;
 			this.lblWelcome.Text = "Welcome Label";
-			// 
-			// acceptBtn
-			// 
-			this.acceptBtn.BackColor = System.Drawing.Color.DarkOrange;
+            this.lblWelcome.ForeColor = System.Drawing.Color.White;
+            // 
+            // acceptBtn
+            // 
+            this.acceptBtn.BackColor = System.Drawing.Color.DarkOrange;
 			this.acceptBtn.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
 			this.acceptBtn.ForeColor = System.Drawing.Color.White;
 			this.acceptBtn.Location = new System.Drawing.Point(392, 724);
