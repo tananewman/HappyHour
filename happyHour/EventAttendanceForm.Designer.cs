@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace EventAttendanceApp
 {
@@ -35,8 +36,9 @@ namespace EventAttendanceApp
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.LblScanBadge = new System.Windows.Forms.Label();
 			this.lblWelcome = new System.Windows.Forms.Label();
-			this.acceptBtn = new System.Windows.Forms.Button();
+			this.acceptBtn = new EventAttendanceApp.RoundedButton();
 			this.pbPicture = new EventAttendanceApp.OvalPictureBox();
+			this.rejectBtn = new EventAttendanceApp.RoundedButton();
 			((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
 			this.SuspendLayout();
@@ -72,7 +74,9 @@ namespace EventAttendanceApp
 			// 
 			// acceptBtn
 			// 
-	        this.acceptBtn.BackColor = System.Drawing.Color.DarkOrange;
+			this.acceptBtn.BackColor = System.Drawing.Color.DarkOrange;
+			this.acceptBtn.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
+			this.acceptBtn.ForeColor = System.Drawing.Color.White;
 			this.acceptBtn.Location = new System.Drawing.Point(392, 724);
 			this.acceptBtn.Name = "acceptBtn";
 			this.acceptBtn.Size = new System.Drawing.Size(370, 64);
@@ -80,8 +84,6 @@ namespace EventAttendanceApp
 			this.acceptBtn.Text = "Accept";
 			this.acceptBtn.UseVisualStyleBackColor = false;
 			this.acceptBtn.Click += new System.EventHandler(this.button1_Click);
-	        this.acceptBtn.Font = new Font("Arial", 24, FontStyle.Bold);
-	        this.acceptBtn.ForeColor = Color.White;
 			// 
 			// pbPicture
 			// 
@@ -92,6 +94,20 @@ namespace EventAttendanceApp
 			this.pbPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pbPicture.TabIndex = 9;
 			this.pbPicture.TabStop = false;
+			// 
+			// rejectBtn
+			// 
+			this.rejectBtn.BackColor = System.Drawing.Color.DarkRed;
+			this.rejectBtn.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
+			this.rejectBtn.ForeColor = System.Drawing.Color.White;
+			this.rejectBtn.Location = new System.Drawing.Point(392, 724);
+			this.rejectBtn.Name = "rejectBtn";
+			this.rejectBtn.Size = new System.Drawing.Size(370, 64);
+			this.rejectBtn.TabIndex = 10;
+			this.rejectBtn.Text = "Reject";
+			this.rejectBtn.UseVisualStyleBackColor = false;
+	        this.rejectBtn.Visible = false;
+			this.rejectBtn.Click += new System.EventHandler(this.button2_Click);
 			// 
 			// EventAttendanceForm
 			// 
@@ -104,6 +120,7 @@ namespace EventAttendanceApp
 			this.Controls.Add(this.LblScanBadge);
 			this.Controls.Add(this.pbLogo);
 			this.Controls.Add(this.acceptBtn);
+			this.Controls.Add(this.rejectBtn);
 			this.Name = "EventAttendanceForm";
 			this.Text = "1-800 Contacts Happy Hour Verifier";
 			this.Load += new System.EventHandler(this.EventAttendanceForm_Load);
@@ -123,7 +140,8 @@ namespace EventAttendanceApp
         private System.Windows.Forms.Label lblWelcome;
         private OvalPictureBox pbPicture;
 
-		private System.Windows.Forms.Button acceptBtn;
+		private RoundedButton acceptBtn;
+		private RoundedButton rejectBtn;
 	}
 }
 
