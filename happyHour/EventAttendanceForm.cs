@@ -95,10 +95,16 @@ namespace EventAttendanceApp
 	            acceptBtn.Visible = true;
 
                 // db work
-                var emp = new EmployeeModel
+                var emp = _employees.Find(x => x.EmployeeId == user.CampusId);
+
+                if (emp == null)
                 {
-                    EmployeeId = user.CampusId, EmployeeName = user.FirstName + " " + user.LastName
-                };
+                    emp = new EmployeeModel
+                    {
+                        EmployeeId = user.CampusId,
+                        EmployeeName = user.FirstName + " " + user.LastName
+                    };
+                }
 
                 emp.DrinksToday++;
                 emp.LastLogin = DateTime.Today;
