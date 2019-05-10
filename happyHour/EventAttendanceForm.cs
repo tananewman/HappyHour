@@ -14,7 +14,6 @@ namespace EventAttendanceApp
 {
 	public partial class EventAttendanceForm : Form
     {
-	    public campusEntities _ce = new campusEntities();
         private List<EmployeeModel> _employees = new List<EmployeeModel>();
 
         public EventAttendanceForm()

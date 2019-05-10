@@ -72,7 +72,7 @@ namespace EventAttendanceApp
 			// 
 			// acceptBtn
 			// 
-			this.acceptBtn.BackColor = System.Drawing.Color.DodgerBlue;
+	        this.acceptBtn.BackColor = System.Drawing.Color.DarkOrange;
 			this.acceptBtn.Location = new System.Drawing.Point(392, 724);
 			this.acceptBtn.Name = "acceptBtn";
 			this.acceptBtn.Size = new System.Drawing.Size(370, 64);
@@ -81,6 +81,7 @@ namespace EventAttendanceApp
 			this.acceptBtn.UseVisualStyleBackColor = false;
 			this.acceptBtn.Click += new System.EventHandler(this.button1_Click);
 	        this.acceptBtn.Font = new Font("Arial", 24, FontStyle.Bold);
+	        this.acceptBtn.ForeColor = Color.White;
 			// 
 			// pbPicture
 			// 

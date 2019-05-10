@@ -101,19 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmployeeModel.cs" />
-    <Compile Include="EventAttendance.cs">
-      <DependentUpon>EventAttendanceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EventAttendanceModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EventAttendanceModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EventAttendanceModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EventAttendanceModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="HappyHourModel.cs" />
     <Compile Include="EventAttendanceForm.cs">
       <SubType>Form</SubType>
@@ -138,26 +125,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="HappyHour_old.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HappyHour_old.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="EventAttendanceModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HappyHour_old.edmx</DependentUpon>
-      <LastGenOutput>EventAttendanceModel.Context.cs</LastGenOutput>
-    </None>
     <Content Include="HappyHourDb.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="HappyHour_old.edmx.diagram">
-      <DependentUpon>HappyHour_old.edmx</DependentUpon>
-    </None>
-    <None Include="EventAttendanceModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HappyHour_old.edmx</DependentUpon>
-      <LastGenOutput>EventAttendanceModel.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
