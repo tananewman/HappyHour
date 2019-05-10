@@ -115,11 +115,6 @@
       <DependentUpon>EventAttendanceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="HappyHourModel.cs" />
-    <Compile Include="HappyHour_old.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HappyHour_old.edmx</DependentUpon>
-    </Compile>
     <Compile Include="EventAttendanceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,10 +181,10 @@
     <Content Include="Contacts.ProximityScanner.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="HappyHour_old.edmx.sql" />
     <Content Include="PcProxAPI_x86.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\PcProxAPI_x64.dll" />
     <None Include="Resources\1800contactslogo2.png" />
   </ItemGroup>
   <ItemGroup>
